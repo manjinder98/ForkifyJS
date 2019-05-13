@@ -18,7 +18,7 @@ export default class List {
 
     deleteItem(id) {
         // Finds element to remove by looking at the index
-        const index = this.items.findIndex(el => el.id = id);
+        const index = this.items.findIndex(el => el.id === id);
         // Removes element from array
         this.items.splice(index, 1);
     }
