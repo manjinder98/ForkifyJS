@@ -23,7 +23,6 @@ export const renderLikes = like => {
             </a>
         </li>
     `;
-    console.log(markup);
     elements.likesList.insertAdjacentHTML('beforeend', markup);
 };
 
