@@ -38,7 +38,6 @@ const controlSearch = async () => {
             clearLoader();
             searchView.renderResults(state.search.result);
         } catch (err) {
-            console.log(err);
             alert('Something went wrong with the search');
             clearLoader();
         }
@@ -91,7 +90,6 @@ const controlRecipe = async () => {
             );
 
         } catch (error) {
-            console.log(error);
             alert('Error processing recipe');
         }
     }
@@ -112,8 +110,19 @@ const listController = () => {
     });
 };
 
-state.likes = new Likes();
-likesView.toggleLikeMenu(state.likes.getNumberLikes());
+// Restore recipes on page load
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+    // Get Data from Local Storage
+    state.likes.getData();
+    // Toggle Button
+    likesView.toggleLikeMenu(state.likes.getNumberLikes());
+    // Render Likes 
+    state.likes.likes.forEach(like => {
+        likesView.renderLikes(like);
+    });
+});
+
 // Like Controller
 const likesController = () => {
     if (!state.likes) state.likes = new Likes();

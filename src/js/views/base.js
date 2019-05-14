@@ -14,7 +14,7 @@ export const elementStrings = {
     loader: 'loader'
 };
 
-export const renderLoader = () => {
+export const renderLoader = (el) => {
     const loader = `
        <div class=${elementStrings.loader}>
             <svg>
@@ -22,7 +22,7 @@ export const renderLoader = () => {
             </svg>
        </div> 
     `;
-    elements.recipe.insertAdjacentHTML('afterbegin', loader);
+    el.insertAdjacentHTML('afterbegin', loader);
 };
 
 export const clearLoader = () => {
