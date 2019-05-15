@@ -11,6 +11,7 @@ module.exports = {
         filename: 'js/bundle.js'
     },
     devServer: {
+        port: process.env.PORT || 5000,
         contentBase: './dist'
     },
     plugins: [
