@@ -42,7 +42,7 @@ Enjoy the website and feel free to customize it!
 
 ## Contributors
 
-* **Manjinder Singh** - *Initial work* - [Portfolio](https://github.com/manjinder98/manjinder98.github.io/)
+* **Manjinder Singh** - *Initial work* - [Portfolio](https://manjinder98.github.io/)
 
 ## License
 
