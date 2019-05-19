@@ -108,6 +108,7 @@ const listController = () => {
         const item = state.list.addItem(el.count, el.unit, el.ingredient);
         listView.renderItem(item);
     });
+    listView.renderRemoveButton();
 };
 
 // Restore recipes on page load
@@ -168,6 +169,15 @@ elements.shopping.addEventListener('click', e => {
     } else if (e.target.matches(".shopping__count-value")) {
         const val = parseFloat(e.target.value, 10);
         state.list.updateCount(id, val)
+    }
+});
+
+// Handle Remove All Button
+elements.shoppingDiv.addEventListener('click', e => {
+    if (e.target.matches(".remove__btn, .remove__btn *")) {
+        state.list.deleteAllItems();
+        listView.deleteAllItems();
+        listView.removeDeleteButton();
     }
 });
 
