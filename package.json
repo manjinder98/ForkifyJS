@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode production --open",
+    "start": "node ./server.js",
     "postinstall": "npm run build"
   },
   "author": "Manjinder Singh",

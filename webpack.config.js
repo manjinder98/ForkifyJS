@@ -9,11 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
-    },
-    devServer: {
-        port: process.env.PORT || 5000,
-        contentBase: './dist'
-    },
+    }, 
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
