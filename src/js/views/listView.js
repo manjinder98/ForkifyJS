@@ -18,7 +18,31 @@ export const renderItem = item => {
     elements.shopping.insertAdjacentHTML('beforeend', markup);
 };
 
+export const renderRemoveButton = () => {
+    const removeAllButton = `
+        <button class="btn-small remove__btn">
+            <svg class="search__icon">
+                <use href="img/icons.svg#icon-shopping-cart"></use>
+            </svg>
+            <span>Remove All</span>
+        </button>
+    `; 
+    elements.shopping.insertAdjacentHTML('afterend', removeAllButton);
+};
+
+export const removeDeleteButton = () => {
+    const button = document.querySelector('.remove__btn');
+    button.parentElement.removeChild(button);
+};
+
 export const deleteItem = id => {
     const item = document.querySelector(`[data-itemid="${id}"]`);
     if(item) item.parentElement.removeChild(item);
+};
+
+export const deleteAllItems = () => {
+    const itemsDiv = elements.shopping;
+    while (itemsDiv.firstChild) {
+        itemsDiv.removeChild(itemsDiv.firstChild);
+    }
 };
