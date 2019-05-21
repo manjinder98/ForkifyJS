@@ -41,11 +41,6 @@ body {
       margin: 0;
       border-radius: 0; } }
 
-.remove__btn {
-  margin-top: 3rem;
-  padding: 1rem 5.75rem !important;
-}
-
 .btn, .btn-small, .btn-small:link, .btn-small:visited {
   background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
   border-radius: 10rem;
