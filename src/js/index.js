@@ -103,16 +103,28 @@ const listController = () => {
     // Create a new list if there's none
     if (!state.list) state.list = new List();
 
+    if(!state.list.isListed())
     // Add each ingredient to the list
     state.recipe.ingredients.forEach(el => {
         const item = state.list.addItem(el.count, el.unit, el.ingredient);
         listView.renderItem(item);
     });
-    listView.renderRemoveButton();
+    const checkRemoveBtn = document.querySelector('.remove__btn');
+    const checkEmailForm = document.getElementById('email-form');
+    if(!checkRemoveBtn) {
+        listView.renderRemoveButton();
+    }
+    if(!checkEmailForm) {
+        listView.renderEmailForm();
+    }
+    document.getElementById("items").value = localStorage.getItem("shopping_list");
 };
 
 // Restore recipes on page load
 window.addEventListener('load', () => {
+    /**
+     * Load Likes
+     */
     state.likes = new Likes();
     // Get Data from Local Storage
     state.likes.getData();
@@ -122,6 +134,24 @@ window.addEventListener('load', () => {
     state.likes.likes.forEach(like => {
         likesView.renderLikes(like);
     });
+
+    /**
+     * Load Shopping List
+     */
+    state.list = new List();
+    // Get Data from Local Storage
+    state.list.getData();
+    // Toggle email and remove buttons
+    const items = state.list.items;
+    if (Object.entries(items).length !== 0) {
+        listView.renderRemoveButton();
+        listView.renderEmailForm();
+        // Toggle List
+        items.forEach(item => {
+            listView.renderItem(item);
+        });
+        document.getElementById("items").value = localStorage.getItem("shopping_list");
+    }
 });
 
 // Like Controller
@@ -177,7 +207,6 @@ elements.shoppingDiv.addEventListener('click', e => {
     if (e.target.matches(".remove__btn, .remove__btn *")) {
         state.list.deleteAllItems();
         listView.deleteAllItems();
-        listView.removeDeleteButton();
     }
 });
 

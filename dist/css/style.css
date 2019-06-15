@@ -171,6 +171,47 @@ body {
     height: 4.5rem;
     display: block; }
 
+#email-form {
+  text-align: center;
+  padding-top: 5%;
+}
+
+.send-btn {
+  top: 10%;
+  left: 25%;
+  position: relative;
+}
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert {
+  padding: 15px;
+  font-size: 15px;
+  margin: 0px 5px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+input[type="email"] {
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  border: 0;
+  outline: 0;
+  border-radius: 25px;
+  padding: 18px 18px;
+}
+
 .search {
   background-color: #fff;
   border-radius: 10rem;

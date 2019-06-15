@@ -30,9 +30,24 @@ export const renderRemoveButton = () => {
     elements.shopping.insertAdjacentHTML('afterend', removeAllButton);
 };
 
-export const removeDeleteButton = () => {
-    const button = document.querySelector('.remove__btn');
-    button.parentElement.removeChild(button);
+export const renderEmailForm = () => {
+    const div = `
+        <form method="POST" action="send" id="email-form">
+            <div>
+                <input type="email" name="email" placeholder="Please enter your email" required>
+            </div>
+            <div>
+                <input type="hidden" id = "items"  name="items">
+            </div>
+            <button class="btn-small send-btn" type="submit">
+                <svg class="search__icon">
+                    <use href="img/icons.svg#icon-shopping-cart"></use>
+                </svg>
+                <span>Send</span>
+            </button>
+        </form>
+    `;
+    elements.shopping.insertAdjacentHTML('afterend', div);
 };
 
 export const deleteItem = id => {
@@ -41,8 +56,9 @@ export const deleteItem = id => {
 };
 
 export const deleteAllItems = () => {
-    const itemsDiv = elements.shopping;
-    while (itemsDiv.firstChild) {
-        itemsDiv.removeChild(itemsDiv.firstChild);
-    }
+    elements.shopping.innerHTML = '';
+    // Remove Email Form
+    elements.shoppingDiv.childNodes[5].remove();
+    // Remove Remove Button
+    elements.shoppingDiv.childNodes[7].remove();
 };
